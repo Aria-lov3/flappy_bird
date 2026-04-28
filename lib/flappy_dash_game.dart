@@ -1,5 +1,7 @@
-import 'package:flame/camera.dart';
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:flappy_bird/componet/dash_parallax_background.dart';
+import 'package:flappy_bird/componet/dash.dart';
 
 class FlappyDashGame extends FlameGame<FlappyDashWorld> {
   FlappyDashGame()
@@ -9,4 +11,11 @@ class FlappyDashGame extends FlameGame<FlappyDashWorld> {
       );
 }
 
-class FlappyDashWorld extends World {}
+class FlappyDashWorld extends World {
+  @override
+  void onLoad() {
+    super.onLoad();
+    add(DashParallaxBackground());
+    add(Dash());
+  }
+}
