@@ -13,7 +13,7 @@ class FlappyDashGame extends FlameGame<FlappyDashWorld> {
 
 class FlappyDashWorld extends World {
   @override
-  void onLoad() {
+  Future<void> onLoad() async {
     super.onLoad();
     add(DashParallaxBackground());
     add(Dash());
