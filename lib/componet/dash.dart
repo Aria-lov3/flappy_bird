@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flame/components.dart';
+import 'package:flutter/widgets.dart';
 
 class Dash extends PositionComponent {
   Dash()
@@ -11,10 +12,26 @@ class Dash extends PositionComponent {
 
   late Sprite _dashSprite;
 
+  final Vector2 gravity = Vector2(0, 900.0);
+  Vector2 _velocity = Vector2(0, 0);
+
+  final Vector2 _jumpForce = Vector2(0, -400);
+
   @override
   Future<void> onLoad() async {
     await super.onLoad();
     _dashSprite = await Sprite.load('flappy_bird.png');
+  }
+
+  @override
+  void update(double dt) {
+    super.update(dt);
+    _velocity = _velocity + gravity * dt;
+    position = position + _velocity * dt;
+  }
+
+  void jump() {
+    _velocity = _jumpForce;
   }
 
   @override
