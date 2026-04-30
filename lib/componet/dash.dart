@@ -8,14 +8,15 @@ class Dash extends PositionComponent {
         position: Vector2(0, 0),
         size: Vector2.all(75),
         anchor: Anchor.center,
+        priority: 10,
       );
 
   late Sprite _dashSprite;
 
-  final Vector2 gravity = Vector2(0, 900.0);
+  final Vector2 gravity = Vector2(0, 1400.0);
   Vector2 _velocity = Vector2(0, 0);
 
-  final Vector2 _jumpForce = Vector2(0, -400);
+  final Vector2 _jumpForce = Vector2(0, -500);
 
   @override
   Future<void> onLoad() async {
